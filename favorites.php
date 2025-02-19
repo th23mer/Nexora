@@ -1,22 +1,18 @@
 <?php
 include "includes/head.php";
 
-// Initialize favorites session variable if it doesn't exist
 if (!isset($_SESSION['favorites'])) {
     $_SESSION['favorites'] = [];
 }
 
-// Handle deletion of items from favorites
 if (isset($_GET['delete']) && isset($_SESSION['user_id'])) {
     $item_id = intval($_GET['delete']);
     delete_from_favorites($_SESSION['user_id'], $item_id);
     get_redirect("favorites.php");
 }
 
-// Handle adding items to favorites
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_favorite'])) {
     if (!isset($_SESSION['user_id'])) {
-        // Store the item ID in a session for redirection after login
         $_SESSION['pending_favorite'] = intval($_POST['item_id']);
         get_redirect("login.php");
     } else {
@@ -26,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_favorite'])) {
     }
 }
 
-// Redirect back to add pending favorite after login
 if (isset($_SESSION['pending_favorite']) && isset($_SESSION['user_id'])) {
     $item_id = $_SESSION['pending_favorite'];
     unset($_SESSION['pending_favorite']);

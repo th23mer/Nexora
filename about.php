@@ -42,11 +42,7 @@ include "includes/head.php"
             <div class="site-section-heading pt-3 mb-4">
               <h2 class="text-black">WHO WE ARE</h2>
             </div>
-            <p>Nexora.com, is brought to you by the Nexora Company – one of India’s
-              most trusted nexoracies, with over 100 years’ experience in dispensing quality medicines.
-              At netmeds.com, we help you look after your own health effortlessly as well as take care
-              of loved ones wherever they may reside in India. You can buy and send medicines from any
-              corner of the country - with just a few clicks of the mouse.</p>
+            <p>Nexora.com, Nexora delivers cutting-edge computer hardware and accessories at great prices. We’re here to make technology accessible for everyone. Welcome to innovation made simple.</p>
 
           </div>
         </div>
@@ -71,11 +67,7 @@ include "includes/head.php"
             <div class="site-section-heading pt-3 mb-4">
               <h2 class="text-black">ONE-STOP SHOP</h2>
             </div>
-            <p class="text-black">Nexora.com continues a legacy of 100 years of success in the
-              nexoraceutical industry. We are committed to provide safe, reliable and affordable medicines
-              as well as a customer service philosophy that is worthy of our valued customers’ loyalty.
-              We offer a superior online shopping experience, which includes ease of navigation and
-              absolute transactional security.</p>
+            <p class="text-black">Nexora.com, Nexora delivers cutting-edge computer hardware and accessories at great prices. We’re here to make technology accessible for everyone. Welcome to innovation made simple.</p>
 
           </div>
         </div>
