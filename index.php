@@ -121,7 +121,6 @@ include "includes/head.php"
               $num = sizeof($data);
               for ($i = 0; $i < $num; $i++) {
               ?>
-                <!--  -->
                 <div class="  text-center item mb-4">
                   <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>"> <img class="rounded mx-auto d-block" style="width:20vw ; height:vh ;" src="images/<?php echo $data[$i]['item_image'] ?>" alt="Image"></a>
 
@@ -129,7 +128,6 @@ include "includes/head.php"
 
                   <p class="price"><?php echo $data[$i]['item_price'] ?>TND</p>
                 </div>
-                <!--  -->
               <?php
                 if ($i == 5) {
                   break;
