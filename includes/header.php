@@ -32,7 +32,7 @@
                                 if (!empty($categories)) {
                                     foreach ($categories as $category) {
                                         $cat_name = htmlspecialchars($category['category']); // Sanitize output
-                                        echo "<li><a href='store.php?cat=$cat_name'>$cat_name</a></li>";
+                                        echo "<li><a href='store.php?category=$cat_name'>$cat_name</a></li>";
                                     }
                                 } else {
                                     echo "<li><a href='#'>No Categories Available</a></li>";
@@ -41,6 +41,9 @@
                             </ul>
                         </li>
                         <li><a href="about.php">About</a></li>
+                        <?php if (isset($_SESSION['admin_id'])): ?>
+                            <li><a href="admin/index.php">Admin</a></li>
+                        <?php endif; ?>
                     </ul>
                 </nav>
             </div>

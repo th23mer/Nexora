@@ -25,42 +25,29 @@ include "includes/head.php"
     </div>
 
     <div class="site-section">
-      <div class="container">
-        <div class="row align-items-stretch section-overlap">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="banner-wrap bg-primary h-100">
-              <a href="store.php?filter=sale" class="h-100">
-                <h5>Sales</h5>
-                <p>
-                  Explore more than 10,000 products.
-                </p>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="banner-wrap h-100">
-              <a href="store.php?filter=new" class="h-100">
-                <h5>New <br> Products</h5>
-                <p>
-                  Explore more than 10,000 products.
-                </p>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="banner-wrap bg-warning h-100">
-              <a href="#" class="h-100">
-                <h5>New <br> Products</h5>
-                <p>
-                  Explore more than 10,000 products.
-                </p>
-              </a>
-            </div>
-          </div>
-
+  <div class="container">
+    <div class="row align-items-stretch justify-content-center section-overlap g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="banner-wrap bg-primary h-100">
+          <a href="store.php?filter=
+          " class="h-100 d-block text-center">
+            <h5>Sales</h5>
+            <p>Explore Our Products.</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="banner-wrap h-100">
+          <a href="store.php?filter=new" class="h-100 d-block text-center">
+            <h5>New <br> Products</h5>
+            <p>Dive in Now.</p>
+          </a>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 
     <div class="site-section">
       <div class="container">

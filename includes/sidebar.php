@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label>
-                <input type="checkbox" name="filter" value="nsew"> New Arrivals
+                <input type="checkbox" name="filter" value="new"> New Arrivals
             </label>
         </div>
 

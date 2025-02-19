@@ -265,7 +265,7 @@ function add_item()
     if (isset($_POST['add_item'])) {
         $name = trim($_POST['name']);
         $brand = trim($_POST['brand']);
-        $cat = trim($_POST['cat']);
+        $cat = trim($_POST['category']);
         $tags = trim($_POST['tags']);
         $image = trim($_POST['image']);
         $quantity = trim($_POST['quantity']);
@@ -273,8 +273,7 @@ function add_item()
         $details = trim($_POST['details']);
         $check = check_name($name);
         if (
-            empty($name) or empty($brand) or empty($cat)  or
-            empty($tags) or empty($image) or empty($quantity) or empty($price) or empty($details)
+            empty($name) or empty($brand) or empty($cat)  or empty($tags) or empty($image) or empty($quantity) or empty($price) or empty($details)
         ) {
             $_SESSION['message'] = "empty_err";
             get_redirect("products.php");

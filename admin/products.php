@@ -58,7 +58,7 @@ include "includes/head.php";
                 </div>
                 <div class="input-group mb-3 form-group">
                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
-                    <select name="cat" class="form-select" id="inputGroupSelect01">
+                    <select name="category" class="form-select" id="inputGroupSelect01">
                         <option selected>Choose...</option>
                         <option value="laptops">Laptops</option>
                         <option value="desktops">Desktops</option>
@@ -126,20 +126,7 @@ include "includes/head.php";
                 </div>
                 <div class="input-group mb-3 form-group">
                     <label class="input-group-text" for="inputGroupSelect01">category</label>
-                    <select name="cat" class="form-select" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="laptops">Laptops</option>
-                        <option value="desktops">Desktops</option>
-                        <option value="components">PC Components</option>
-                        <option value="storage">Storage</option>
-                        <option value="monitors">Monitors</option>
-                        <option value="printers-scanners">Printers & Scanners</option>
-                        <option value="keyboards-mice">Keyboards & Mice</option>
-                        <option value="networking">Networking</option>
-                        <option value="gaming">Gaming Gear</option>
-                        <option value="software">Software</option>
-                        <option value="accessories">Accessories</option>
-                    </select>
+                    <input name="category" class="form-select" id="inputGroupSelect01">
                 </div>
                 <div class="form-group">
                     <label>Product tags</label>

@@ -1,8 +1,6 @@
 <?php
-// Database connection
 $connection = mysqli_connect("localhost", "root", "", "nexora");
 
-// Redirect function for POST requests
 function post_redirect($url) {
     ob_start();
     header('Location: ' . $url);
@@ -10,14 +8,12 @@ function post_redirect($url) {
     die();
 }
 
-// Redirect function for GET requests
 function get_redirect($url) {
     echo "<script> 
         window.location.href = '" . $url . "'; 
     </script>";
 }
 
-// Query function to fetch data from the database
 function query($query) {
     global $connection;
     $run = mysqli_query($connection, $query);
@@ -41,6 +37,14 @@ function single_query($query) {
         die("Query failed: " . mysqli_error($connection));
     }
 }
+function handle_pending_favorite() {
+    if (isset($_SESSION['pending_favorite']) && isset($_SESSION['user_id'])) {
+        $item_id = $_SESSION['pending_favorite'];
+        unset($_SESSION['pending_favorite']); 
+        return add_to_favorites($_SESSION['user_id'], $item_id);
+    }
+    return false;
+}
 
 // Login function
 function login() {
@@ -58,6 +62,7 @@ function login() {
             post_redirect("login.php");
         } elseif ($password == $data[0]['user_password'] && $userEmail == $data[0]['email']) {
             $_SESSION['user_id'] = $data[0]['user_id'];
+            handle_pending_favorite();
             post_redirect("index.php");
         } else {
             $_SESSION['message'] = "loginErr";
@@ -138,9 +143,9 @@ function search() {
             $query = "SELECT * FROM item WHERE item_tags LIKE '%$search_text%' OR item_title LIKE '%$search_text%'";
             return query($query);
         }
-    } elseif (isset($_GET['cat'])) {
-        $cat = $_GET['cat'];
-        $query = "SELECT * FROM item WHERE item_cat = '$cat' ORDER BY RAND()";
+    } elseif (isset($_GET['category'])) {
+        $category = $_GET['category'];
+        $query = "SELECT * FROM item WHERE item_cat = '$category' ORDER BY RAND()";
         return query($query);
     } elseif (isset($_GET['store'])) {
         return all_products();
@@ -148,6 +153,28 @@ function search() {
     return [];
 }
 
+function searchFilter($category = '', $min_price = 0, $max_price = PHP_INT_MAX) {
+    global $connection;
+
+    // Build the SQL query dynamically based on filters
+    $query = "SELECT * FROM item WHERE 1=1";
+
+    if (!empty($category)) {
+        $query .= " AND item_cat = '$category'";
+    }
+
+    if ($min_price > 0) {
+        $query .= " AND item_price >= $min_price";
+    }
+
+    if ($max_price > 0) {
+        $query .= " AND item_price <= $max_price";
+    }
+
+    $query .= " ORDER BY item_created_at DESC";
+
+    return query($query);
+}
 // Fetch all products
 function all_products() {
     $query = "SELECT * FROM item ORDER BY RAND()";
@@ -216,12 +243,13 @@ function delete_all_favorites($user_id) {
     return single_query($query);
 }
 
-// Fetch new products (added in the last 30 days)
 function get_new_items() {
+    global $connection;
     $query = "SELECT * FROM item WHERE item_created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY) ORDER BY item_created_at DESC";
     return query($query);
 }
 function get_sale_items() {
+    global $connection;
     $query = "SELECT * FROM item WHERE item_tags LIKE '%sale%' ORDER BY RAND()";
     return query($query);
 }
